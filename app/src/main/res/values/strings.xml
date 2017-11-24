@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LembreteLivros</string>
+
+    <string name="label_name_book_list">Nome:&#160;</string>
+    <string name="label_pages_book_list">N°. Páginas:&#160;</string>
+    <string name="no_books_text_view">Nenhum livro cadastrado</string>
 </resources>
