@@ -4,4 +4,12 @@
     <string name="label_name_book_list">Nome:&#160;</string>
     <string name="label_pages_book_list">N°. Páginas:&#160;</string>
     <string name="no_books_text_view">Nenhum livro cadastrado</string>
+
+    <string name="menu_add_button">Adicionar</string>
+
+    <string name="save_button">Salvar</string>
+    <string name="book_name_hint">Nome</string>
+    <string name="book_pages_hint">Número de páginas</string>
+
+    <string name="message_text_missing">É preciso preencher todos os dados para salvar</string>
 </resources>
