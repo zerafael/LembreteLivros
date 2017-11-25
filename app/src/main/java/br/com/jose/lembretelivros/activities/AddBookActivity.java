@@ -1,5 +1,6 @@
 package br.com.jose.lembretelivros.activities;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.jose.lembretelivros.R;
+import br.com.jose.lembretelivros.Tasks.insertBookTask;
 import br.com.jose.lembretelivros.database.AppDatabase;
 import br.com.jose.lembretelivros.models.Book;
 
 public class AddBookActivity extends AppCompatActivity{
-
-	private AppDatabase db;
 
 	private EditText name;
 	private EditText numberPages;
@@ -40,8 +40,7 @@ public class AddBookActivity extends AppCompatActivity{
 				else {
 					book.setName(name.getText().toString());
 					book.setNumberPages(Integer.parseInt(numberPages.getText().toString()));
-					db = AppDatabase.getInstance(getBaseContext());
-					db.bookDao().insertBook(book);
+					new insertBookTask(getBaseContext()).execute(book);
 
 					// Ao terminar sai da activity e volta para a lista
 					finish();
@@ -49,6 +48,4 @@ public class AddBookActivity extends AppCompatActivity{
 			}
 		});
 	}
-
-
 }

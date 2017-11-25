@@ -1,6 +1,7 @@
 package br.com.jose.lembretelivros.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,14 +17,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.jose.lembretelivros.R;
+import br.com.jose.lembretelivros.Tasks.Refreshable;
+import br.com.jose.lembretelivros.Tasks.getBooksTask;
 import br.com.jose.lembretelivros.adapters.BookAdapter;
 import br.com.jose.lembretelivros.database.AppDatabase;
 import br.com.jose.lembretelivros.models.Book;
 
-public class BookListActivity extends AppCompatActivity{
+public class BookListActivity extends AppCompatActivity implements Refreshable{
 
 	private RecyclerView bookRecyclerView;
 	private TextView noBooksAvailable;
+
+	private List<Book> books = new ArrayList<>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -42,14 +47,12 @@ public class BookListActivity extends AppCompatActivity{
 	protected void onResume(){
 		super.onResume();
 
-		updateList();
+		new getBooksTask(this).execute(this);
 	}
 
 	private void updateList(){
-		List<Book> books;
-		//TODO: Colocar o acesso ao banco em uma thread
-		books = AppDatabase.getInstance(this).bookDao().getAllBooks();
 
+		// Se a lista estiver vazia, RecyclerView fica invisivel e a mensagem fica visivel
 		if(books.isEmpty()){
 			bookRecyclerView.setVisibility(View.GONE);
 			noBooksAvailable.setVisibility(View.VISIBLE);
@@ -59,6 +62,7 @@ public class BookListActivity extends AppCompatActivity{
 			noBooksAvailable.setVisibility(View.GONE);
 		}
 
+		// Cria um adapter para a RecyclerView e passa a lista de livros que aparecera na RecyclerView
 		bookRecyclerView.setAdapter(new BookAdapter(books, this));
 	}
 
@@ -80,5 +84,12 @@ public class BookListActivity extends AppCompatActivity{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void refresh(List<Book> books){
+		this.books = books;
+
+		updateList();
 	}
 }
