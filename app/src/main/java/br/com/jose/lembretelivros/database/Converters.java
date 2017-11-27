@@ -1,9 +1,11 @@
 package br.com.jose.lembretelivros.database;
 
 import android.arch.persistence.room.TypeConverter;
+import android.util.Log;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by jose on 25/11/17.

@@ -40,6 +40,8 @@ public class AddBookActivity extends AppCompatActivity{
 				else {
 					book.setName(name.getText().toString());
 					book.setNumberPages(Integer.parseInt(numberPages.getText().toString()));
+
+					//Inicia a task para inserir livro no banco de dados
 					new insertBookTask(getBaseContext()).execute(book);
 
 					// Ao terminar sai da activity e volta para a lista

@@ -5,12 +5,14 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.media.Image;
 
+import java.io.Serializable;
+
 /**
  * Created by jose on 21/11/17.
  */
 
 @Entity
-public class Book{
+public class Book implements Serializable{
 
 	@PrimaryKey(autoGenerate = true)
 	@ColumnInfo(name = "book_id")

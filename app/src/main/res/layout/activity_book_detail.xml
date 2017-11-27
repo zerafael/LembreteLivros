@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_TopBottom"
+        android:layout_marginLeft="@dimen/margin_RightLeft"
+        android:textSize="@dimen/font_title"
+        android:textStyle="bold"
+        android:text="@string/label_data"/>
+
+    <ImageView
+        android:id="@+id/detail_book_icon"
+        android:layout_width="@dimen/image_size_detail_activity"
+        android:layout_height="@dimen/image_size_detail_activity"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_RightLeft"
+        android:src="@drawable/book_icon"/>
+
+    <EditText
+        android:id="@+id/detail_book_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_TopBottom"
+        android:layout_marginRight="@dimen/margin_RightLeft"
+        android:layout_marginLeft="@dimen/margin_RightLeft"
+        android:layout_marginBottom="@dimen/margin_TopBottom"
+        android:inputType="textCapSentences"
+        android:hint="@string/book_name_hint"/>
+
+    <EditText
+        android:id="@+id/detail_book_pages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_RightLeft"
+        android:layout_marginRight="@dimen/margin_RightLeft"
+        android:layout_marginBottom="@dimen/margin_TopBottom"
+        android:inputType="number"
+        android:hint="@string/book_pages_hint"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_RightLeft"
+        android:layout_marginTop="@dimen/margin_RightLeft"
+        android:textSize="@dimen/font_title"
+        android:textStyle="bold"
+        android:text="@string/label_reminder"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/reminder_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_RightLeft"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_menu_add_reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/margin_TopBottom"
+        app:srcCompat="@android:drawable/ic_input_add"/>
+
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

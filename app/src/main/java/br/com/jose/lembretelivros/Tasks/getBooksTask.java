@@ -2,7 +2,6 @@ package br.com.jose.lembretelivros.Tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class getBooksTask extends AsyncTask<Context, Void, List<Book>>{
 
 	@Override
 	protected List<Book> doInBackground(Context... contexts){
-		Log.v("TAG", contexts[0].toString());
 		return AppDatabase.getInstance(contexts[0]).bookDao().getAllBooks();
 	}
 
