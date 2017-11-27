@@ -12,4 +12,11 @@
     <string name="book_pages_hint">Número de páginas</string>
 
     <string name="message_text_missing">É preciso preencher todos os dados para salvar</string>
+    <string name="label_data">Dados</string>
+    <string name="label_reminder">Lembretes</string>
+
+    <string name="date_picker_title">Data do lembrete</string>
+    <string name="time_picker_title">Hora do lembrete</string>
+    <string name="label_date_reminder_list">Data:</string>
+    <string name="label_time_reminder_list">Hora:</string>
 </resources>

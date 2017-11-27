@@ -7,6 +7,7 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 import br.com.jose.lembretelivros.database.dao.BookDao;
+import br.com.jose.lembretelivros.database.dao.ReminderDao;
 import br.com.jose.lembretelivros.models.Book;
 import br.com.jose.lembretelivros.models.Reminder;
 
@@ -21,6 +22,7 @@ public abstract class AppDatabase extends RoomDatabase{
 	private static final String DATABASE_NAME = "lembrete-livros";
 
 	public abstract BookDao bookDao();
+	public abstract ReminderDao reminderDao();
 
 	private static AppDatabase instance;
 
